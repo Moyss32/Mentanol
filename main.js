@@ -61,7 +61,7 @@ document.querySelector('.open-modal')?.addEventListener('click', ()=> modal?.sho
 document.querySelector('.modal-close')?.addEventListener('click', ()=> modal?.close());
 
 // Seletor de variação e preço
-const prices = { "70": 19.90, "100": 24.90, "kit3": 54.90 };
+const prices = { "50": 6.80, "100": 8.22, "200": 13.70 };
 const priceEl = document.querySelector('[data-price]');
 const qtyEl = document.getElementById('qty');
 const updatePrice = ()=>{
