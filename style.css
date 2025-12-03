@@ -135,6 +135,108 @@ img {
   border-radius: 24px;
 }
 
+/* =============================== */
+/*  STACK VERTICAL ESTILO RAZOR   */
+/* =============================== */
+
+.cards-stack {
+  display: block;
+  position: relative;
+  margin-top: 40px;
+}
+
+.cards-stack .card {
+  position: sticky;
+  top: 0;
+
+  /* tamanho grande para dar o efeito bonito */
+  height: 75vh;
+
+  /* estilo herdado dos teus cards */
+  background: #fff;
+  border-radius: var(--radius);
+  padding: 24px;
+  box-shadow: var(--shadow);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  transition: transform .3s ease, opacity .3s ease;
+  opacity: 0.97;
+  margin-bottom: 140px; /* distância entre um card e outro enquanto sobem */
+}
+
+/* Escalas em camadas — dá o efeito 3D */
+.cards-stack .card:nth-child(1) { transform: scale(1); }
+.cards-stack .card:nth-child(2) { transform: scale(0.98); }
+.cards-stack .card:nth-child(3) { transform: scale(0.96); }
+.cards-stack .card:nth-child(4) { transform: scale(0.94); }
+
+/* Quando você passar o mouse, NÃO exagerar o hover */
+.cards-stack .card:hover {
+  transform: translateY(-4px) scale(1.01);
+}
+
+/* Desativar o grid horizontal caso alguém use grid-4 junto */
+.grid-4.cards-stack {
+  display: block !important;
+  grid-template-columns: 1fr !important;
+}
+
+/* Fundo suave com gradiente */
+.cards-stack .card {
+  background: linear-gradient(145deg, #ffffff 0%, #f5fdf9 100%);
+  position: sticky;
+  top: 0;
+  height: 75vh;
+  padding: 32px;
+
+  border-radius: 22px;
+  box-shadow:
+      0 8px 24px rgba(0,0,0,0.08),
+      inset 0 0 18px rgba(46, 204, 138, 0.05);
+
+  backdrop-filter: blur(2px);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 18px;
+}
+
+/* Ícone maior */
+.cards-stack .card .icon {
+  font-size: 3rem;
+  opacity: .9;
+}
+
+/* Título */
+.cards-stack .card h3 {
+  font-size: 1.7rem;
+  margin: 0;
+}
+
+/* Texto */
+.cards-stack .card p {
+  font-size: 1.05rem;
+  color: var(--muted);
+  max-width: 460px;
+}
+
+/* Linha decorativa */
+.cards-stack .card::before {
+  content: "";
+  position: absolute;
+  top: 22px;
+  left: 22px;
+  width: 55px;
+  height: 4px;
+  background: var(--mint-dark);
+  border-radius: 8px;
+  opacity: .18;
+}
+
 /* Responsivo */
 @media (max-width:960px){
   .grid-2{grid-template-columns:1fr}

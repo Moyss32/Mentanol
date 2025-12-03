@@ -17,7 +17,9 @@
 
   <header class="site-header">
     <div class="container nav">
-      <a class="logo" href="#"><span class="logo-mark"><img src="imagens/logo.png" alt="">
+      <a class="logo" href="#">
+        <span class="logo-mark"><img src="imagens/logo.png" alt=""></span>
+      </a>
       <nav class="menu" aria-label="Primário">
         <a href="#produto">Produto</a>
         <a href="#beneficios">Benefícios</a>
@@ -52,40 +54,50 @@
           </ul>
         </div>
         <figure class="hero-media">
-        <img src="imagens/sabao_menta.jpeg" alt="Barras verdes de sabão de menta com folhas frescas e gotas d’água" />
+          <img src="imagens/sabao_menta.jpeg" alt="Barras verdes de sabão de menta com folhas frescas e gotas d’água" />
         </figure>
       </div>
       <button class="scroll-down" aria-label="Rolar para Benefícios">↓</button>
     </section>
 
-    <!-- BENEFÍCIOS -->
-    <section id="beneficios" class="section">
-      <div class="container">
-        <h2 class="section-title">Por que escolher nosso sabão?</h2>
-        <div class="grid-4 cards">
-          <article class="card reveal">
-            <div class="icon">❄</div>
-            <h3>Refresca e purifica</h3>
-            <p>Mentol natural proporciona sensação “geladinha” imediata e limpa sem agredir.</p>
-          </article>
-          <article class="card reveal">
-            <div class="icon">🌿</div>
-            <h3>Aroma natural</h3>
-            <p>Óleo essencial de menta com perfume herbal que revigora corpo e mente.</p>
-          </article>
-          <article class="card reveal">
-            <div class="icon">🧼</div>
-            <h3>Feito à mão</h3>
-            <p>Produção artesanal em pequenos lotes, priorizando frescor e qualidade.</p>
-          </article>
-          <article class="card reveal">
-            <div class="icon">🛡</div>
-            <h3>Gentil com a pele</h3>
-            <p>Base vegetal glicerinada, espuma leve e enxágue rápido, sem sensação de resíduo.</p>
-          </article>
-        </div>
-      </div>
-    </section>
+    <!-- BENEFÍCIOS COM EFEITO "PARA TRÁS" -->
+<section id="beneficios" class="section">
+  <div class="container">
+    <h2 class="section-title">Por que escolher nosso sabão?</h2>
+    <div class="cards cards-stack">
+
+      <article class="card reveal">
+        <div class="orb"></div>
+        <div class="icon">❄</div>
+        <h3>Refresca e purifica</h3>
+        <p>Mentol natural proporciona sensação “geladinha” imediata e limpa sem agredir.</p>
+      </article>
+
+      <article class="card reveal">
+        <div class="orb"></div>
+        <div class="icon">🌿</div>
+        <h3>Aroma natural</h3>
+        <p>Óleo essencial de menta com perfume herbal que revigora corpo e mente.</p>
+      </article>
+
+      <article class="card reveal">
+        <div class="orb"></div>
+        <div class="icon">🧼</div>
+        <h3>Feito à mão</h3>
+        <p>Produção artesanal em pequenos lotes, priorizando frescor e qualidade.</p>
+      </article>
+
+      <article class="card reveal">
+        <div class="orb"></div>
+        <div class="icon">🛡</div>
+        <h3>Gentil com a pele</h3>
+        <p>Base vegetal glicerinada, espuma leve e enxágue rápido, sem sensação de resíduo.</p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
 
     <!-- INGREDIENTES -->
     <section id="ingredientes" class="section section-soft">
@@ -155,8 +167,6 @@
         </div>
       </div>
     </section>
-
-    
 
     <!-- SENSORIAL -->
     <section id="sensorial" class="section section-soft">
@@ -296,7 +306,7 @@
         <a href="#">Contato</a>
       </nav>
       <form class="newsletter" aria-label="Assinar novidades">
-        <label for="email">Ganhe 10% no primeiro pedido</label><br
+        <label for="email">Ganhe 10% no primeiro pedido</label><br>
         <label for="link">Siga-nos no nosso <a href="https://www.instagram.com/saboes_mentanol/" target="_blank" style="color: aqua;">instagram</a></label>
         <div class="newsletter-row">
           <input id="email" type="email" placeholder="Seu e-mail" required />
@@ -319,5 +329,3 @@
   </dialog>
 </body>
 </html>
-
-<!-- Teste -->
