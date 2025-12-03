@@ -13,8 +13,20 @@
   <script defer src="https://unpkg.com/scrollreveal"></script>
   <script defer src="main.js"></script>
 </head>
+
 <body>
   <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+  <aside class="side-nav">
+  <a href="#produto">🏠</a>
+  <a href="#beneficios">✨</a>
+  <a href="#ingredientes">🧼</a>
+  <a href="#processo">⚙️</a>
+  <a href="#depoimentos">💬</a>
+  <a href="#sustentabilidade">🌱</a>
+  <a href="#faq">📞</a>
+  </aside>
+
 
   <header class="site-header">
     <div class="container nav">
@@ -90,7 +102,7 @@
 
       <article class="card reveal">
         <div class="orb"></div>
-        <div class="icon">🛡</div>
+        <div class="icon">❤️</div>
         <h3>Gentil com a pele</h3>
         <p>Base vegetal glicerinada, espuma leve e enxágue rápido, sem sensação de resíduo.</p>
       </article>
@@ -332,5 +344,62 @@
       <video src="assets/process.mp4" controls playsinline></video>
     </div>
   </dialog>
+  <script>
+document.addEventListener("DOMContentLoaded", () => {
+  // Ajuste os seletores conforme teu HTML:
+  const nav = document.querySelector(".site-header"); // era "header"
+  const sideNav = document.querySelector(".side-nav"); // certifique-se de que existe no HTML
+  if (!nav) {
+    console.warn("site-header não encontrado. Ajuste o seletor se necessário.");
+    return; // sem header não faz sentido continuar
+  }
+
+  // Se não existir side-nav, criamos um fallback silencioso (não quebra)
+  if (!sideNav) {
+    console.warn("side-nav não encontrado. A sidebar ficará desativada.");
+  }
+
+  let lastScroll = window.pageYOffset || 0;
+  let ticking = false;
+
+  // Função que executa a lógica principal
+  function handleScroll() {
+    const current = window.pageYOffset || 0;
+
+    // se rolou pra baixo e passou do threshold, esconder nav e mostrar side
+    if (current > lastScroll && current > 150) {
+      nav.classList.add("hide-nav");
+      if (sideNav) {
+        sideNav.classList.add("visible");
+        sideNav.style.opacity = "1";
+        sideNav.style.pointerEvents = "auto";
+      }
+    } else {
+      // rolando pra cima ou perto do topo -> mostra nav, esconde side
+      nav.classList.remove("hide-nav");
+      if (sideNav) {
+        sideNav.classList.remove("visible");
+        sideNav.style.opacity = "0";
+        sideNav.style.pointerEvents = "none";
+      }
+    }
+
+    lastScroll = current <= 0 ? 0 : current; // evita negativos no iOS, etc
+    ticking = false;
+  }
+
+  // Debounced RAF loop pra performance
+  window.addEventListener("scroll", () => {
+    if (!ticking) {
+      window.requestAnimationFrame(handleScroll);
+      ticking = true;
+    }
+  }, { passive: true });
+
+  // Inicializa o estado (caso a página já esteja rolada ao abrir)
+  handleScroll();
+});
+</script>
+
 </body>
 </html>

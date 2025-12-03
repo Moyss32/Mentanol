@@ -103,3 +103,19 @@ document.querySelectorAll('.btn-primary').forEach(btn=>{
     setTimeout(()=> ripple.style.opacity='0', 120);
   });
 });
+
+const sideNav = document.querySelector(".side-nav");
+
+window.addEventListener("scroll", () => {
+  const current = window.pageYOffset;
+
+  if (current > lastScroll && current > 150) {
+    nav.classList.add("hide-nav");
+    sideNav.style.opacity = "1";
+  } else {
+    nav.classList.remove("hide-nav");
+    sideNav.style.opacity = "0";
+  }
+
+  lastScroll = current;
+});

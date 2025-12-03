@@ -48,8 +48,17 @@ a{color:inherit; text-decoration:none}
 
 /* Header fixo e leve */
 .site-header{
-  position:sticky; top:0; z-index:10; background:#ffffffea; border-bottom:1px solid #eee;
+  position:sticky;
+  top:0; z-index:10;
+  background:#ffffffea;
+  border-bottom:1px solid #eee;
+  transition: transform .3s ease;
 }
+
+header.hide-nav {
+  transform: translateY(-100%);
+}
+
 .nav{display:flex; align-items:center; justify-content:space-between; gap:12px; padding:10px 0}
 .logo{display:flex; align-items:center; gap:8px; font-weight:600}
 .logo-mark{display:grid; place-items:center; width:26px; height:26px; border-radius:8px; background:var(--mint); color:#fff}
@@ -236,6 +245,37 @@ img {
   border-radius: 8px;
   opacity: .18;
 }
+
+.site-header {
+  transition: transform .28s ease, opacity .28s ease;
+  will-change: transform;
+}
+.site-header.hide-nav {
+  transform: translateY(-110%);
+  opacity: 0;
+}
+
+/* Sidebar: começa invisível */
+.side-nav {
+  position: fixed;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  z-index: 999;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .3s ease;
+}
+
+.side-nav.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+
 
 /* Responsivo */
 @media (max-width:960px){
